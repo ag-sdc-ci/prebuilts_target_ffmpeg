@@ -1,0 +1,207 @@
+// Auto-generated prebuilt APEX Blueprint for external/ffmpeg
+// Staged from Extractive APEX package: ext-ffmpeg (org.blisslabs.ag.ffmpeg)
+
+package {
+    default_applicable_licenses: ["external_ffmpeg_license"],
+}
+
+license {
+    name: "external_ffmpeg_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-LGPL-2.1-or-later",
+        "SPDX-license-identifier-GPL-2.0-or-later",
+    ],
+    license_text: [
+        "LICENSE",
+    ],
+}
+
+cc_library_headers {
+    name: "ffmpeg_headers",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: false,
+    export_include_dirs: ["include"],
+}
+
+cc_library_headers {
+    name: "libavcodec_headers",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: false,
+    export_include_dirs: ["include"],
+}
+
+cc_library_headers {
+    name: "libavformat_headers",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: false,
+    export_include_dirs: ["include"],
+}
+
+cc_library_headers {
+    name: "libavutil_headers",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: false,
+    export_include_dirs: ["include"],
+}
+
+cc_prebuilt_library {
+    name: "libavutil",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: false,
+    check_elf_files: false,
+    export_include_dirs: ["include"],
+    shared: {
+        srcs: ["lib64/libavutil.so"],
+    },
+    static: {
+        srcs: ["lib64/libavutil.a"],
+    },
+}
+
+cc_prebuilt_library {
+    name: "libswresample",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: false,
+    check_elf_files: false,
+    export_include_dirs: ["include"],
+    shared_libs: ["libavutil"],
+    shared: {
+        srcs: ["lib64/libswresample.so"],
+    },
+    static: {
+        srcs: ["lib64/libswresample.a"],
+    },
+}
+
+cc_prebuilt_library {
+    name: "libswscale",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: false,
+    check_elf_files: false,
+    export_include_dirs: ["include"],
+    shared_libs: ["libavutil"],
+    shared: {
+        srcs: ["lib64/libswscale.so"],
+    },
+    static: {
+        srcs: ["lib64/libswscale.a"],
+    },
+}
+
+cc_prebuilt_library {
+    name: "libavcodec",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: false,
+    check_elf_files: false,
+    export_include_dirs: ["include"],
+    shared_libs: [
+        "libavutil",
+        "libswresample",
+    ],
+    shared: {
+        srcs: ["lib64/libavcodec.so"],
+    },
+    static: {
+        srcs: ["lib64/libavcodec.a"],
+    },
+}
+
+cc_prebuilt_library {
+    name: "libavformat",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: false,
+    check_elf_files: false,
+    export_include_dirs: ["include"],
+    shared_libs: [
+        "libavcodec",
+        "libavutil",
+    ],
+    shared: {
+        srcs: ["lib64/libavformat.so"],
+    },
+    static: {
+        srcs: ["lib64/libavformat.a"],
+    },
+}
+
+cc_prebuilt_library {
+    name: "libavfilter",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: false,
+    check_elf_files: false,
+    export_include_dirs: ["include"],
+    shared_libs: [
+        "libavcodec",
+        "libavformat",
+        "libavutil",
+        "libswscale",
+    ],
+    shared: {
+        srcs: ["lib64/libavfilter.so"],
+    },
+    static: {
+        srcs: ["lib64/libavfilter.a"],
+    },
+}
+
+cc_prebuilt_library {
+    name: "libavdevice",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: false,
+    check_elf_files: false,
+    export_include_dirs: ["include"],
+    shared_libs: [
+        "libavcodec",
+        "libavformat",
+        "libavutil",
+    ],
+    shared: {
+        srcs: ["lib64/libavdevice.so"],
+    },
+    static: {
+        srcs: ["lib64/libavdevice.a"],
+    },
+}
+
+cc_prebuilt_binary {
+    name: "ffmpeg",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: false,
+    check_elf_files: false,
+    srcs: ["bin/ffmpeg"],
+}
+
+cc_prebuilt_binary {
+    name: "ffprobe",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: false,
+    check_elf_files: false,
+    srcs: ["bin/ffprobe"],
+}

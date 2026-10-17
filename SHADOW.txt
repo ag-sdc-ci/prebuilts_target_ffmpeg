@@ -1,0 +1,7 @@
+shadow prebuilt repo: ffmpeg (extractive target APEX payload)
+  upstream: external/ffmpeg
+  api-level: 34 (branch 34-20261016)
+  blobs: org.blisslabs.ag.ffmpeg-8.1-1.apex, org.blisslabs.ag.ffmpeg.dev-8.1-1.apex
+  payload: bionic target (lib64/ shared + static, include/, bin/, share/) + root Android.bp
+  modules: libavcodec, libavdevice, libavfilter, libavformat, libavutil, libswresample, libswscale, ffmpeg, ffprobe
+  date: 2026-10-18
